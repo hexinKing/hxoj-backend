@@ -7,6 +7,7 @@ import com.hexin.hxoj.model.dto.questionsubmit.JudgeInfo;
 import com.hexin.hxoj.model.enums.JudgeInfoMessageEnum;
 import com.hexin.hxoj.model.enums.QuestionSubmitStatusEnum;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -21,6 +22,8 @@ public class ExampleCodeSandbox implements CodeSandBox {
         executeCodeResponse.setOutputList(inputList);
         executeCodeResponse.setMessage("测试执行成功");
         executeCodeResponse.setStatus(QuestionSubmitStatusEnum.SUCCEED.getValue());
+        List<String> list = Arrays.asList("9","6","6");
+        executeCodeResponse.setOutputList(list);
         JudgeInfo judgeInfo = new JudgeInfo();
         judgeInfo.setMessage(JudgeInfoMessageEnum.ACCEPTED.getText());
         judgeInfo.setMemory(100L);

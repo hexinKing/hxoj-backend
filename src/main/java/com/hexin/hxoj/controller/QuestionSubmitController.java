@@ -44,7 +44,7 @@ public class QuestionSubmitController {
      * @param request
      * @return 提交记录的 id
      */
-    @PostMapping("/")
+    @PostMapping("/sumbit")
     public BaseResponse<Long> doQuestionSubmit(@RequestBody QuestionSubmitAddRequest questionSubmitAddRequest,
                                                HttpServletRequest request) {
         if (questionSubmitAddRequest == null || questionSubmitAddRequest.getQuestionId() <= 0) {

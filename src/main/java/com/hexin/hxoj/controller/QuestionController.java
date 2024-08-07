@@ -11,10 +11,15 @@ import com.hexin.hxoj.constant.UserConstant;
 import com.hexin.hxoj.exception.BusinessException;
 import com.hexin.hxoj.exception.ThrowUtils;
 import com.hexin.hxoj.model.dto.question.*;
+import com.hexin.hxoj.model.dto.questionsubmit.QuestionSubmitAddRequest;
+import com.hexin.hxoj.model.dto.questionsubmit.QuestionSubmitQueryRequest;
 import com.hexin.hxoj.model.entity.Question;
+import com.hexin.hxoj.model.entity.QuestionSubmit;
 import com.hexin.hxoj.model.entity.User;
+import com.hexin.hxoj.model.vo.QuestionSubmitVO;
 import com.hexin.hxoj.model.vo.QuestionVO;
 import com.hexin.hxoj.service.QuestionService;
+import com.hexin.hxoj.service.QuestionSubmitService;
 import com.hexin.hxoj.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
@@ -36,6 +41,8 @@ public class QuestionController {
 
     @Resource
     private QuestionService questionService;
+    @Resource
+    private QuestionSubmitService questionSubmitService;
 
     @Resource
     private UserService userService;
@@ -164,7 +171,7 @@ public class QuestionController {
     }
 
     /**
-     * 根据 id 获取（脱敏）
+     * 根据 id 获取题目信息（脱敏）
      *
      * @param id
      * @return
