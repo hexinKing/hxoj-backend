@@ -83,10 +83,9 @@ public class QuestionSubmitServiceImpl extends ServiceImpl<QuestionSubmitMapper,
             throw new BusinessException(ErrorCode.SYSTEM_ERROR, "数据插入失败");
         }
         Long questionSubmitId = questionSubmit.getId();
-        // 执行判题服务( 异步调用 )
-        CompletableFuture.runAsync(() -> {
-            judgeService.doJudge(questionSubmitId);
-        });
+        // 执行判题服务( 异步调用 ) runAsync()方法主要用于执行一些没有返回值的任务，比如发送邮件、下载文件等等
+        CompletableFuture.runAsync(() -> judgeService.doJudge(questionSubmitId));
+
         return questionSubmitId;
     }
 

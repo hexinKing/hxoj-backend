@@ -10,6 +10,7 @@ import com.hexin.hxoj.mapper.UserMapper;
 import com.hexin.hxoj.model.dto.user.UserQueryRequest;
 import com.hexin.hxoj.model.entity.User;
 import com.hexin.hxoj.model.enums.UserRoleEnum;
+import com.hexin.hxoj.model.enums.UserStateEnum;
 import com.hexin.hxoj.model.vo.LoginUserVO;
 import com.hexin.hxoj.model.vo.UserVO;
 import com.hexin.hxoj.service.UserService;
@@ -103,6 +104,10 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         if (user == null) {
             log.info("user login failed, userAccount cannot match userPassword");
             throw new BusinessException(ErrorCode.PARAMS_ERROR, "用户不存在或密码错误");
+        }
+        // 被封号、注销，禁止登录
+        if (!UserStateEnum.NORMAL.getText().equals(user.getUserState())){
+            throw new BusinessException(ErrorCode.FORBIDDEN_ERROR, "该用户已被封/注销，禁止登录");
         }
         // 3. 记录用户的登录态
         request.getSession().setAttribute(USER_LOGIN_STATE, user);

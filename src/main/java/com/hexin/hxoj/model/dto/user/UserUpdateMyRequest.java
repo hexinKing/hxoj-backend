@@ -26,5 +26,25 @@ public class UserUpdateMyRequest implements Serializable {
      */
     private String userProfile;
 
+    /**
+     * 电话号码
+     */
+    private String phone;
+
+    /**
+     * 性别：男/女/其他
+     */
+    private String gender;
+
+    /**
+     * 邮箱
+     */
+    private String email;
+
+    /**
+     * 用户状态：正常/封号/注销
+     */
+    private String userState;
+
     private static final long serialVersionUID = 1L;
 }
