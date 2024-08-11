@@ -57,15 +57,3 @@
 
 - JUnit5 单元测试
 - 示例单元测试类
-
-### 架构设计
-
-- 合理分层
-
-
-找到 job 目录下的 `FullSyncPostToEs` 和 `IncSyncPostToEs` 文件，取消掉 `@Component` 注解的注释，再次执行程序即可触发同步：
-
-```java
-// todo 取消注释开启任务
-//@Component
-```
