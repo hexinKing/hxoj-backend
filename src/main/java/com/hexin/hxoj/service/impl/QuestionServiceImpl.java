@@ -33,7 +33,7 @@ import java.util.stream.Collectors;
  */
 @Service
 public class QuestionServiceImpl extends ServiceImpl<QuestionMapper, Question>
-    implements QuestionService {
+        implements QuestionService {
 
 
     @Resource
@@ -41,6 +41,7 @@ public class QuestionServiceImpl extends ServiceImpl<QuestionMapper, Question>
 
     /**
      * 校验题目是否合法
+     *
      * @param question
      * @param add
      */

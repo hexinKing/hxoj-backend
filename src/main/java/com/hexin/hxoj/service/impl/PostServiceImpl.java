@@ -5,6 +5,9 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.google.gson.Gson;
 import com.hexin.hxoj.common.ErrorCode;
+import com.hexin.hxoj.constant.CommonConstant;
+import com.hexin.hxoj.exception.BusinessException;
+import com.hexin.hxoj.exception.ThrowUtils;
 import com.hexin.hxoj.mapper.PostFavourMapper;
 import com.hexin.hxoj.mapper.PostMapper;
 import com.hexin.hxoj.mapper.PostThumbMapper;
@@ -19,18 +22,6 @@ import com.hexin.hxoj.model.vo.UserVO;
 import com.hexin.hxoj.service.PostService;
 import com.hexin.hxoj.service.UserService;
 import com.hexin.hxoj.utils.SqlUtils;
-import com.hexin.hxoj.constant.CommonConstant;
-import com.hexin.hxoj.exception.BusinessException;
-import com.hexin.hxoj.exception.ThrowUtils;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.stream.Collectors;
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.ObjectUtils;
@@ -48,10 +39,13 @@ import org.springframework.data.elasticsearch.core.query.NativeSearchQuery;
 import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import java.util.*;
+import java.util.stream.Collectors;
+
 /**
  * 帖子服务实现
- *
- *
  */
 @Service
 @Slf4j

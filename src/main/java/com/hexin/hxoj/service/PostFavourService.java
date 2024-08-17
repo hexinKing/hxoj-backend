@@ -10,8 +10,6 @@ import com.hexin.hxoj.model.entity.User;
 
 /**
  * 帖子收藏服务
- *
- *
  */
 public interface PostFavourService extends IService<PostFavour> {
 

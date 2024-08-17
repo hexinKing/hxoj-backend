@@ -12,10 +12,11 @@ import java.util.List;
 /**
  * java语言判题策略
  */
-public class JavaLanguageJudgeStrategy implements JudgeStrategy{
+public class JavaLanguageJudgeStrategy implements JudgeStrategy {
 
     /**
-     *执行判题
+     * 执行判题
+     *
      * @param judgeContext
      * @return
      */

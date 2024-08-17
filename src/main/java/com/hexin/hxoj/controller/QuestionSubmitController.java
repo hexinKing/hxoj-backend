@@ -23,8 +23,6 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * 题目提交接口
- *
- *
  */
 @RestController
 @RequestMapping("/question_submit")

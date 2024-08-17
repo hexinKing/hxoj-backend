@@ -16,15 +16,16 @@ public class JudgeManager {
 
     /**
      * 执行判题
+     *
      * @param judgeContext
      * @return
      */
-    public JudgeInfo doJudge(JudgeContext judgeContext){
+    public JudgeInfo doJudge(JudgeContext judgeContext) {
         // 调用判题策略
         QuestionSubmit questionSubmit = judgeContext.getQuestionSubmit();
         String language = questionSubmit.getLanguage();
         JudgeStrategy judgeStrategy = new DefaultJudgeStrategy();
-        if (language.equals("java")){
+        if (language.equals("java")) {
             judgeStrategy = new JavaLanguageJudgeStrategy();
         }
         return judgeStrategy.doJudge(judgeContext);

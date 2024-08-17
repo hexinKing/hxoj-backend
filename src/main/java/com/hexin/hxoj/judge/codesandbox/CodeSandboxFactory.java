@@ -11,11 +11,11 @@ import com.hexin.hxoj.judge.codesandbox.impl.ThirdPartyCodeSandbox;
 public class CodeSandboxFactory {
 
     public static CodeSandBox newInstance(String type) {
-        if (type == null){
+        if (type == null) {
             return new ExampleCodeSandbox();
         }
         // 根据字符串参数创建指定的代码沙箱实例
-        switch (type){
+        switch (type) {
             case "Example":
                 return new ExampleCodeSandbox();
             case "Remote":

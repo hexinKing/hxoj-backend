@@ -6,23 +6,21 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.hexin.hxoj.common.ErrorCode;
+import com.hexin.hxoj.exception.BusinessException;
 import com.hexin.hxoj.mapper.PostFavourMapper;
 import com.hexin.hxoj.model.entity.Post;
 import com.hexin.hxoj.model.entity.PostFavour;
 import com.hexin.hxoj.model.entity.User;
 import com.hexin.hxoj.service.PostFavourService;
 import com.hexin.hxoj.service.PostService;
-import com.hexin.hxoj.exception.BusinessException;
-
-import javax.annotation.Resource;
 import org.springframework.aop.framework.AopContext;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
+
 /**
  * 帖子收藏服务实现
- *
- *
  */
 @Service
 public class PostFavourServiceImpl extends ServiceImpl<PostFavourMapper, PostFavour>

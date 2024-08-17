@@ -11,12 +11,8 @@ import com.hexin.hxoj.constant.UserConstant;
 import com.hexin.hxoj.exception.BusinessException;
 import com.hexin.hxoj.exception.ThrowUtils;
 import com.hexin.hxoj.model.dto.question.*;
-import com.hexin.hxoj.model.dto.questionsubmit.QuestionSubmitAddRequest;
-import com.hexin.hxoj.model.dto.questionsubmit.QuestionSubmitQueryRequest;
 import com.hexin.hxoj.model.entity.Question;
-import com.hexin.hxoj.model.entity.QuestionSubmit;
 import com.hexin.hxoj.model.entity.User;
-import com.hexin.hxoj.model.vo.QuestionSubmitVO;
 import com.hexin.hxoj.model.vo.QuestionVO;
 import com.hexin.hxoj.service.QuestionService;
 import com.hexin.hxoj.service.QuestionSubmitService;
@@ -31,8 +27,6 @@ import java.util.List;
 
 /**
  * 题目接口
- *
- *
  */
 @RestController
 @RequestMapping("/question")
@@ -197,7 +191,7 @@ public class QuestionController {
      */
     @PostMapping("/list/page/vo")
     public BaseResponse<Page<QuestionVO>> listQuestionVOByPage(@RequestBody QuestionQueryRequest questionQueryRequest,
-            HttpServletRequest request) {
+                                                               HttpServletRequest request) {
         long current = questionQueryRequest.getCurrent();
         long size = questionQueryRequest.getPageSize();
         // 限制爬虫
@@ -216,7 +210,7 @@ public class QuestionController {
      */
     @PostMapping("/my/list/page/vo")
     public BaseResponse<Page<QuestionVO>> listMyQuestionVOByPage(@RequestBody QuestionQueryRequest questionQueryRequest,
-            HttpServletRequest request) {
+                                                                 HttpServletRequest request) {
         if (questionQueryRequest == null) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
@@ -241,7 +235,7 @@ public class QuestionController {
     @PostMapping("/list/page")
     @AuthCheck(mustRole = UserConstant.ADMIN_ROLE)
     public BaseResponse<Page<Question>> listQuestionByPage(@RequestBody QuestionQueryRequest questionQueryRequest,
-                                                   HttpServletRequest request) {
+                                                           HttpServletRequest request) {
         long current = questionQueryRequest.getCurrent();
         long size = questionQueryRequest.getPageSize();
         Page<Question> questionPage = questionService.page(new Page<>(current, size),

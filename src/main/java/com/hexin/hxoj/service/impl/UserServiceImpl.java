@@ -1,11 +1,11 @@
 package com.hexin.hxoj.service.impl;
 
-import static com.hexin.hxoj.constant.UserConstant.USER_LOGIN_STATE;
-
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.hexin.hxoj.common.ErrorCode;
+import com.hexin.hxoj.constant.CommonConstant;
+import com.hexin.hxoj.exception.BusinessException;
 import com.hexin.hxoj.mapper.UserMapper;
 import com.hexin.hxoj.model.dto.user.UserQueryRequest;
 import com.hexin.hxoj.model.entity.User;
@@ -15,13 +15,6 @@ import com.hexin.hxoj.model.vo.LoginUserVO;
 import com.hexin.hxoj.model.vo.UserVO;
 import com.hexin.hxoj.service.UserService;
 import com.hexin.hxoj.utils.SqlUtils;
-import com.hexin.hxoj.constant.CommonConstant;
-import com.hexin.hxoj.exception.BusinessException;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
-import javax.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import me.chanjar.weixin.common.bean.WxOAuth2UserInfo;
 import org.apache.commons.lang3.StringUtils;
@@ -29,10 +22,15 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import static com.hexin.hxoj.constant.UserConstant.USER_LOGIN_STATE;
+
 /**
  * 用户服务实现
- *
- *
  */
 @Service
 @Slf4j
@@ -106,7 +104,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
             throw new BusinessException(ErrorCode.PARAMS_ERROR, "用户不存在或密码错误");
         }
         // 被封号、注销，禁止登录
-        if (!UserStateEnum.NORMAL.getText().equals(user.getUserState())){
+        if (!UserStateEnum.NORMAL.getText().equals(user.getUserState())) {
             throw new BusinessException(ErrorCode.FORBIDDEN_ERROR, "该用户已被封/注销，禁止登录");
         }
         // 3. 记录用户的登录态

@@ -8,8 +8,6 @@ import java.util.stream.Collectors;
 
 /**
  * 用户状态枚举
- *
- *
  */
 public enum UserStateEnum {
 

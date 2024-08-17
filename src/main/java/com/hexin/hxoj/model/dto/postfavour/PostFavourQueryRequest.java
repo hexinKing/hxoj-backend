@@ -1,16 +1,14 @@
 package com.hexin.hxoj.model.dto.postfavour;
 
-import com.hexin.hxoj.model.dto.post.PostQueryRequest;
 import com.hexin.hxoj.common.PageRequest;
-
-import java.io.Serializable;
+import com.hexin.hxoj.model.dto.post.PostQueryRequest;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.io.Serializable;
+
 /**
  * 帖子收藏查询请求
- *
- *
  */
 @Data
 @EqualsAndHashCode(callSuper = true)

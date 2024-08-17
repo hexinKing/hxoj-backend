@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.hexin.hxoj.common.ErrorCode;
 import com.hexin.hxoj.constant.CommonConstant;
+import com.hexin.hxoj.exception.BusinessException;
 import com.hexin.hxoj.judge.JudgeService;
 import com.hexin.hxoj.mapper.QuestionSubmitMapper;
 import com.hexin.hxoj.model.dto.questionsubmit.QuestionSubmitAddRequest;
@@ -19,7 +20,6 @@ import com.hexin.hxoj.service.QuestionService;
 import com.hexin.hxoj.service.QuestionSubmitService;
 import com.hexin.hxoj.service.UserService;
 import com.hexin.hxoj.utils.SqlUtils;
-import com.hexin.hxoj.exception.BusinessException;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -36,8 +36,8 @@ import java.util.stream.Collectors;
  */
 @Service
 public class QuestionSubmitServiceImpl extends ServiceImpl<QuestionSubmitMapper, QuestionSubmit>
-    implements QuestionSubmitService {
-    
+        implements QuestionSubmitService {
+
     @Resource
     private QuestionService questionService;
     @Resource
@@ -79,7 +79,7 @@ public class QuestionSubmitServiceImpl extends ServiceImpl<QuestionSubmitMapper,
         questionSubmit.setStatus(QuestionSubmitStatusEnum.WAITING.getValue());
         questionSubmit.setJudgeInfo("{}");
         boolean save = this.save(questionSubmit);
-        if (!save){
+        if (!save) {
             throw new BusinessException(ErrorCode.SYSTEM_ERROR, "数据插入失败");
         }
         Long questionSubmitId = questionSubmit.getId();

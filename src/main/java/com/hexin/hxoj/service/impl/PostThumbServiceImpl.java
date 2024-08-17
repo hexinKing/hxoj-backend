@@ -3,23 +3,21 @@ package com.hexin.hxoj.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.hexin.hxoj.common.ErrorCode;
+import com.hexin.hxoj.exception.BusinessException;
 import com.hexin.hxoj.mapper.PostThumbMapper;
 import com.hexin.hxoj.model.entity.Post;
 import com.hexin.hxoj.model.entity.PostThumb;
 import com.hexin.hxoj.model.entity.User;
 import com.hexin.hxoj.service.PostService;
 import com.hexin.hxoj.service.PostThumbService;
-import com.hexin.hxoj.exception.BusinessException;
-
-import javax.annotation.Resource;
 import org.springframework.aop.framework.AopContext;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
+
 /**
  * 帖子点赞服务实现
- *
- *
  */
 @Service
 public class PostThumbServiceImpl extends ServiceImpl<PostThumbMapper, PostThumb>

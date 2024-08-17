@@ -2,8 +2,6 @@ package com.hexin.hxoj.constant;
 
 /**
  * 文件常量
- *
- *
  */
 public interface FileConstant {
 

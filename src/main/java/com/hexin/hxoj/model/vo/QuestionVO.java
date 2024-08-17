@@ -12,6 +12,7 @@ import java.util.List;
 
 /**
  * 题目封装类
+ *
  * @TableName question
  */
 @Data

@@ -1,13 +1,11 @@
 package com.hexin.hxoj.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.hexin.hxoj.model.entity.PostThumb;
 import com.hexin.hxoj.model.entity.User;
-import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
  * 帖子点赞服务
- *
- *
  */
 public interface PostThumbService extends IService<PostThumb> {
 

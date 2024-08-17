@@ -7,8 +7,6 @@ import java.util.List;
 
 /**
  * 编辑请求
- *
- *
  */
 @Data
 public class QuestionEditRequest implements Serializable {

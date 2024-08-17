@@ -1,12 +1,10 @@
 package com.hexin.hxoj.utils;
 
-import java.net.InetAddress;
 import javax.servlet.http.HttpServletRequest;
+import java.net.InetAddress;
 
 /**
  * 网络工具类
- *
- *
  */
 public class NetUtils {
 

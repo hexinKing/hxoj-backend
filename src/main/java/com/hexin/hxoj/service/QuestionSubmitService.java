@@ -2,18 +2,18 @@ package com.hexin.hxoj.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.hexin.hxoj.model.dto.questionsubmit.QuestionSubmitAddRequest;
 import com.hexin.hxoj.model.dto.questionsubmit.QuestionSubmitQueryRequest;
 import com.hexin.hxoj.model.entity.QuestionSubmit;
 import com.hexin.hxoj.model.entity.User;
 import com.hexin.hxoj.model.vo.QuestionSubmitVO;
-import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
  * 题目提交服务实现
  */
 public interface QuestionSubmitService extends IService<QuestionSubmit> {
-    
+
     /**
      * 题目提交
      *

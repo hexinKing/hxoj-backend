@@ -22,7 +22,7 @@ public class ExampleCodeSandbox implements CodeSandBox {
         executeCodeResponse.setOutputList(inputList);
         executeCodeResponse.setMessage("测试执行成功");
         executeCodeResponse.setStatus(QuestionSubmitStatusEnum.SUCCEED.getValue());
-        List<String> list = Arrays.asList("9","6","6");
+        List<String> list = Arrays.asList("9", "6", "6");
         executeCodeResponse.setOutputList(list);
         JudgeInfo judgeInfo = new JudgeInfo();
         judgeInfo.setMessage(JudgeInfoMessageEnum.ACCEPTED.getText());

@@ -1,14 +1,13 @@
 package com.hexin.hxoj.model.dto.user;
 
 import com.hexin.hxoj.common.PageRequest;
-import java.io.Serializable;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.io.Serializable;
+
 /**
  * 用户查询请求
- *
- *
  */
 @EqualsAndHashCode(callSuper = true)
 @Data

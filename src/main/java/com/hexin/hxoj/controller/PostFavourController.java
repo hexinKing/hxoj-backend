@@ -15,19 +15,17 @@ import com.hexin.hxoj.model.vo.PostVO;
 import com.hexin.hxoj.service.PostFavourService;
 import com.hexin.hxoj.service.PostService;
 import com.hexin.hxoj.service.UserService;
-
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * 帖子收藏接口
- *
- *
  */
 @RestController
 @RequestMapping("/post_favour")
@@ -93,7 +91,7 @@ public class PostFavourController {
      */
     @PostMapping("/list/page")
     public BaseResponse<Page<PostVO>> listFavourPostByPage(@RequestBody PostFavourQueryRequest postFavourQueryRequest,
-            HttpServletRequest request) {
+                                                           HttpServletRequest request) {
         if (postFavourQueryRequest == null) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }

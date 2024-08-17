@@ -25,11 +25,17 @@ public class CodeSandBoxTest {
     @Test
     public void CodeSandBox() {
 
-        // 参数配置化 // 工厂模式
+        // 参数配置化 + 工厂模式
         CodeSandBox codeSandBox = CodeSandboxFactory.newInstance(type);
         // 代理模式,本质是对需要代理对象方法的重写
         CodeSandboxProxy codeSandboxProxy = new CodeSandboxProxy(codeSandBox);
-        String code = "int main() { }";
+        String code = "public class Main {\n" +
+                "    public static void main(String[] args) {\n" +
+                "        int a = Integer.parseInt(args[0]);\n" +
+                "        int b = Integer.parseInt(args[1]);\n" +
+                "        System.out.println(\"结果:\" + (a + b));\n" +
+                "    }\n" +
+                "}\n";
         String language = QuestionSubmitLanguageEnum.JAVA.getValue();
         List<String> inputList = Arrays.asList("1 2", "3 4");
         ExecuteCodeRequest executeCodeRequest = ExecuteCodeRequest.builder()
@@ -38,7 +44,9 @@ public class CodeSandBoxTest {
                 .inputList(inputList)
                 .build();
         ExecuteCodeResponse executeCodeResponse = codeSandboxProxy.executeCode(executeCodeRequest);
+        // 断言,用于检查一个对象是否为null,如果 executeCodeResponse 为 null，测试将失败，并且通常会抛出一个异常
         Assertions.assertNotNull(executeCodeResponse);
+        System.out.println(executeCodeResponse);
 
     }
 

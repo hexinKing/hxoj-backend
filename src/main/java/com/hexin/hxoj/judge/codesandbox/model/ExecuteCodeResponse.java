@@ -1,4 +1,3 @@
-
 package com.hexin.hxoj.judge.codesandbox.model;
 
 import com.hexin.hxoj.model.dto.questionsubmit.JudgeInfo;
