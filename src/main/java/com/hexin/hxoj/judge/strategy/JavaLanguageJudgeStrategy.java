@@ -23,6 +23,10 @@ public class JavaLanguageJudgeStrategy implements JudgeStrategy {
     @Override
     public JudgeInfo doJudge(JudgeContext judgeContext) {
         JudgeInfo judgeInfo = judgeContext.getJudgeInfo();
+        // 如果judgeInfo.getMemory()为空，需要初始化一些数据
+        if (judgeInfo.getMemory() == null) {
+            judgeInfo.setMemory(0L);
+        }
         List<String> inputList = judgeContext.getInputList();
         List<String> outputList = judgeContext.getOutputList();
         List<JudgeCase> judgeCaseList = judgeContext.getJudgeCaseList();
@@ -49,14 +53,14 @@ public class JavaLanguageJudgeStrategy implements JudgeStrategy {
         }
         // 判断题目限制
         // 判断是否超时是则为“失败”
-        // 假设Java语言的运行时间计较长，允许比标准时间长10S
-        long JAVA_PROGRAM_TIME_COST = 10000L;
-        if (judgeInfo.getTime() - JAVA_PROGRAM_TIME_COST > judgeConfig.getTimeLimit()) {
+        // 假设Java语言的运行时间计较长，允许比标准时间长5S
+        long JAVA_PROGRAM_TIME_COST = 5000L;
+        if (judgeConfig.getTimeLimit() < judgeInfo.getTime() - JAVA_PROGRAM_TIME_COST ) {
             judgeInfoResponse.setMessage(JudgeInfoMessageEnum.TIME_LIMIT_EXCEEDED.getValue());
             return judgeInfoResponse;
         }
         // 判断是否超出内存限制是则为“失败”
-        if (judgeInfo.getMemory() > judgeConfig.getMemoryLimit()) {
+        if (judgeConfig.getMemoryLimit() < judgeInfo.getMemory()) {
             judgeInfoResponse.setMessage(JudgeInfoMessageEnum.MEMORY_LIMIT_EXCEEDED.getValue());
             return judgeInfoResponse;
         }
