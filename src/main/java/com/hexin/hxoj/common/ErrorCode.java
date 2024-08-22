@@ -13,7 +13,8 @@ public enum ErrorCode {
     FORBIDDEN_ERROR(40300, "禁止访问"),
     SYSTEM_ERROR(50000, "系统内部异常"),
     OPERATION_ERROR(50001, "操作失败"),
-    API_REQUEST_ERROR(50002, "API请求异常");
+    API_REQUEST_ERROR(50002, "API请求异常"),
+    NULL_ERROR(40001, "请求数据为空");
 
     /**
      * 状态码

@@ -1,5 +1,6 @@
 package com.hexin.hxoj.judge.strategy;
 
+
 import com.hexin.hxoj.model.dto.question.JudgeCase;
 import com.hexin.hxoj.model.dto.questionsubmit.JudgeInfo;
 import com.hexin.hxoj.model.entity.Question;
@@ -17,15 +18,15 @@ import java.util.List;
 public class JudgeContext {
 
     /**
-     * 题目判题信息
+     * 沙盒代码判题信息
      */
     private JudgeInfo judgeInfo;
     /**
-     * 沙盒代码返回结果输入用例列表
+     * 沙盒代码输入用例列表
      */
     private List<String> inputList;
     /**
-     * 沙盒代码返回结果输出用例列表
+     * 沙盒代码输出用例列表
      */
     private List<String> outputList;
     /**

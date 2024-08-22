@@ -16,6 +16,7 @@ import com.hexin.hxoj.model.entity.User;
 import com.hexin.hxoj.model.enums.QuestionSubmitLanguageEnum;
 import com.hexin.hxoj.model.enums.QuestionSubmitStatusEnum;
 import com.hexin.hxoj.model.vo.QuestionSubmitVO;
+import com.hexin.hxoj.mq.CodeMqProducer;
 import com.hexin.hxoj.service.QuestionService;
 import com.hexin.hxoj.service.QuestionSubmitService;
 import com.hexin.hxoj.service.UserService;
@@ -31,6 +32,9 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 
+import static com.hexin.hxoj.constant.MqConstant.CODE_EXCHANGE_NAME;
+import static com.hexin.hxoj.constant.MqConstant.CODE_ROUTING_KEY;
+
 /**
  * 题目提交服务实现
  */
@@ -45,6 +49,8 @@ public class QuestionSubmitServiceImpl extends ServiceImpl<QuestionSubmitMapper,
     private JudgeService judgeService;
     @Resource
     private UserService userService;
+    @Resource
+    private CodeMqProducer codeMqProducer;
 
     /**
      * 提交题目
@@ -83,8 +89,11 @@ public class QuestionSubmitServiceImpl extends ServiceImpl<QuestionSubmitMapper,
             throw new BusinessException(ErrorCode.SYSTEM_ERROR, "数据插入失败");
         }
         Long questionSubmitId = questionSubmit.getId();
+        // 生产者发送消息
+        codeMqProducer.sendMessage(CODE_EXCHANGE_NAME, CODE_ROUTING_KEY, String.valueOf(questionSubmitId));
+
         // 执行判题服务( 异步调用 ) runAsync()方法主要用于执行一些没有返回值的任务，比如发送邮件、下载文件等等
-        CompletableFuture.runAsync(() -> judgeService.doJudge(questionSubmitId));
+//        CompletableFuture.runAsync(() -> judgeService.doJudge(questionSubmitId));
 
         return questionSubmitId;
     }

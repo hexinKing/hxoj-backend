@@ -11,32 +11,38 @@ spring:
       matching-strategy: ant_path_matcher
   # session 配置
   session:
-    # todo 取消注释开启分布式 session（须先配置 Redis）
-    # store-type: redis
+    # 分布式 session（须先配置 Redis）
+    store-type: redis
     # 30 天过期
     timeout: 2592000
   # 数据库配置
-  # todo 需替换配置
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/hxoj_db
     username: root
     password: root
-
+  # RabbitMQ 配置
+  rabbitmq:
+    host: 192.168.10.100
+    port: 5672
+    password: guest
+    username: guest
+    virtual-host: /
+    listener:
+      direct:
+        acknowledge-mode: manual
   # Redis 配置
-  # todo 需替换配置，然后取消注释
-#  redis:
-#    database: 1
-#    host: localhost
-#    port: 6379
-#    timeout: 5000
-#    password: 123456
+  redis:
+    database: 6
+    host: localhost
+    port: 6379
+    timeout: 5000
+    password: 123456
   # Elasticsearch 配置
-  # todo 需替换配置，然后取消注释
-#  elasticsearch:
-#    uris: http://localhost:9200
-#    username: root
-#    password: 123456
+    elasticsearch:
+      uris: http://192.168.10.100:9200
+      username: root
+      password: 123456
   # 文件上传
   servlet:
     multipart:
@@ -87,7 +93,6 @@ wx:
     appId: xxx
     appSecret: xxx
 # 对象存储
-# todo 需替换配置
 cos:
   client:
     accessKey: xxx
