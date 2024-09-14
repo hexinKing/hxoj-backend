@@ -13,8 +13,8 @@ import static com.hexin.hxoj.mq.CodeMqInitMain.doInitCodeMq;
  * 主类（项目启动入口）
  */
 // 如需开启 Redis，须移除 exclude 中的内容
-//@SpringBootApplication(exclude = {RedisAutoConfiguration.class})
-@SpringBootApplication()
+@SpringBootApplication(exclude = {RedisAutoConfiguration.class})
+//@SpringBootApplication()
 @MapperScan("com.hexin.hxoj.mapper")
 @EnableScheduling
 @EnableAspectJAutoProxy(proxyTargetClass = true, exposeProxy = true)

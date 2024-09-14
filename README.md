@@ -56,7 +56,7 @@ Cat OJ（Cat Online Judge）系统是一个在线算法评测系统，用户可�
 4. 任务调度（消息队列执行判题）
     - 服务器资源有限，用户要排队，按照顺序去依次执行判题
 
-## 快速启动 🏃‍♂️
+## 快速启动 
 
 1. 下载/拉取本项目到本地（shieroj-backend-single、shieroj-code-sandbox、shieroj-frontend）
 2. 通过 IDEA 代码编辑器进行打开项目，等待依赖的下载

@@ -53,7 +53,7 @@ public class CodeMqInitMain {
         }
     }
 
-    public static void main(String[] args) {
-        doInitCodeMq();
-    }
+//    public static void main(String[] args) {
+//        doInitCodeMq();
+//    }
 }

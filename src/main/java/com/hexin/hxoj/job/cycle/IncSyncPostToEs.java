@@ -17,7 +17,8 @@ import java.util.stream.Collectors;
 /**
  * 增量同步帖子到 es
  */
-@Component
+// todo 取消注释开启任务
+//@Component
 @Slf4j
 public class IncSyncPostToEs {
 
