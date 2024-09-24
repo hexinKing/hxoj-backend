@@ -1,8 +1,12 @@
-## 项目介绍
-基于 Spring Boot + SpingCloud、Alibaba + ES + MyBatis-Plus + Redis + RabbitMQ + Docker 等技术实现的的 **编程算法题目在线评测系统**
-（简称OJ）。
-Cat OJ（Cat Online Judge）系统是一个在线算法评测系统，用户可以选择题目、编写代码并提交代码进行评测，而且是高效、稳定的 OJ
-在线判题评测系统，它能够根据用户提交的代码、出题人预先设置的题目输入和输出用例，进行编译代码、运行代码、判断代码运行结果是否正确。
+# 项目介绍
+基于 Spring Boot + SpingCloud、Alibaba + ES + MyBatis-Plus + Redis + RabbitMQ + Docker 等技术实现的的
+**编程算法题目在线评测系统**（简称OJ）。 Cat OJ（Cat Online Judge）系统是一个在线算法评测系统，
+用户可以选择题目、编写代码并提交代码进行评测，而且是高效、稳定的 OJ 在线判题评测系统，
+它能够根据用户提交的代码、出题人预先设置的题目输入和输出用例，进行编译代码、运行代码、判断代码运行结果是否正确。
+
+项目网页前端地址：https://github.com/hexinKing/hxoj-frontend-master
+项目代码沙盒地址：https://github.com/hexinKing/hxoj-code-sandbox-master
+项目微服务改造地址：https://github.com/hexinKing/heoj-backend-microservice
 
 ## 项目功能 
 
@@ -35,16 +39,7 @@ Cat OJ（Cat Online Judge）系统是一个在线算法评测系统，用户可�
 ### 代码沙箱
 - 只负责接受代码和输入，运行代码，返回编译运行的结果，不用管用户提交的程序是否正确(不负责判题)
 
-### OJ系统调研
-
-1. https://github.com/HimitZH/HOJ (适合学习)
-2. https://github.com/QingdaoU/OnlineJudge (python，不好学，很成熟)
-3. https://github.com/hzxie/voj (在Github上的Start⭐⭐没那么多，没那么成熟，但相对好学)
-4. https://github.com/fleaking/uoj (php实现的)
-5. https://github.com/zhblue/hustoj (成熟，但是php实现)
-6. https://github.com/hydro-dev/Hydro (功能强大，Node.js实现)
-
-## 项目核心亮点 ⭐
+### 项目核心亮点 ⭐
 
 1. 权限校验：用户权限校验
 2. 代码沙箱（安全沙箱）
@@ -56,71 +51,12 @@ Cat OJ（Cat Online Judge）系统是一个在线算法评测系统，用户可�
 4. 任务调度（消息队列执行判题）
     - 服务器资源有限，用户要排队，按照顺序去依次执行判题
 
-## 快速启动 
+### 快速启动 
 
 1. 下载/拉取本项目到本地（shieroj-backend-single、shieroj-code-sandbox、shieroj-frontend）
 2. 通过 IDEA 代码编辑器进行打开项目，等待依赖的下载
 3. 修改配置文件 `application.yaml` 的信息，比如数据库、Redis、RabbitMQ等
 4. 修改信息完成后，通过 `ShierApplication` 程序进行运行项目
-
-
-### 主流框架 & 特性
-
-- Spring Boot 2.7.x（贼新）
-- Spring MVC
-- MyBatis + MyBatis Plus 数据访问（开启分页）
-- Spring Boot 调试工具和项目处理器
-- Spring AOP 切面编程
-- Spring Scheduler 定时任务
-- Spring 事务注解
-
-### 数据存储
-
-- MySQL 数据库
-- Redis 内存数据库
-- Elasticsearch 搜索引擎
-- 腾讯云 COS 对象存储
-
-### 工具类
-
-- Easy Excel 表格处理
-- Hutool 工具库
-- Gson 解析库
-- Apache Commons Lang3 工具类
-- Lombok 注解
-
-### 业务特性
-
-- Spring Session Redis 分布式登录
-- 全局请求响应拦截器（记录日志）
-- 全局异常处理器
-- 自定义错误码
-- 封装通用响应类
-- Swagger + Knife4j 接口文档
-- 自定义权限注解 + 全局校验
-- 全局跨域处理
-- 长整数丢失精度解决
-- 多环境配置
-
-
-## 业务功能
-
-- 提供示例 SQL（用户、帖子、帖子点赞、帖子收藏表、题目、题目提交）
-- 用户登录、注册、注销、更新、检索、权限管理
-- 帖子创建、删除、编辑、更新、数据库检索、ES 灵活检索
-- 帖子点赞、取消点赞
-- 帖子收藏、取消收藏、检索已收藏帖子
-- 题目、删除、编辑、更新、数据库检索、ES 灵活检索
-- 题目提交、删除、编辑、更新、数据库检索、ES 灵活检索
-- 帖子全量同步 ES、增量同步 ES 定时任务
-- 支持微信开放平台登录
-- 支持微信公众号订阅、收发消息、设置菜单
-- 支持分业务的文件上传
-
-### 单元测试
-
-- JUnit5 单元测试
-- 示例单元测试类
 
 ### 单体项目目录结构
 
@@ -161,3 +97,14 @@ Cat OJ（Cat Online Judge）系统是一个在线算法评测系统，用户可�
       └─resources // 项目资源配置
           └─mapper
 ```
+
+### 架构设计
+
+## 1、核心业务流程图
+![核心业务流程图](./readmeimages/核心业务流程图.png)
+
+## 2、时序图
+![时序图](./readmeimages/时序图.png)
+
+## 3、架构设计图
+![架构设计图](./readmeimages/架构设计图.png)
