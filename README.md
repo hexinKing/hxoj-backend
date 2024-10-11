@@ -53,7 +53,7 @@
 
 ### 快速启动 
 
-1. 下载/拉取本项目到本地（shieroj-backend-single、shieroj-code-sandbox、shieroj-frontend）
+1. 下载/拉取本项目到本地
 2. 通过 IDEA 代码编辑器进行打开项目，等待依赖的下载
 3. 修改配置文件 `application.yaml` 的信息，比如数据库、Redis、RabbitMQ等
 4. 修改信息完成后，通过 `ShierApplication` 程序进行运行项目
